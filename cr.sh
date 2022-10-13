@@ -274,6 +274,7 @@ release_charts() {
     fi
 
     echo 'Releasing charts...'
+    echo "${args[@]}"
     cr upload "${args[@]}"
 }
 
