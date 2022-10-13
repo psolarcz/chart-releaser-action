@@ -40,11 +40,11 @@ runs:
         repo=$(cut -d '/' -f 2 <<< "$GITHUB_REPOSITORY")
         
         if [[ -n "${{ inputs.repo }}" ]]; then
-            repo=${inputs.repo}
+            repo="${{ inputs.repo }}"
         fi
         
         if [[ -n "${{ inputs.owner }}" ]]; then
-            owner=${inputs.owner}
+            owner="${{ inputs.owner }}"
         fi
 
         args=(--owner "$owner" --repo "$repo")
