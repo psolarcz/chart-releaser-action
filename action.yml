@@ -25,6 +25,12 @@ inputs:
   install_only:
     description: 'Just install cr tool'
     required: false
+  repo:
+    description: 'Repo'
+    required: false
+  owner:
+    description: 'Owner'
+    required: false
 
 runs:
   using: composite
@@ -32,6 +38,14 @@ runs:
     - run: |
         owner=$(cut -d '/' -f 1 <<< "$GITHUB_REPOSITORY")
         repo=$(cut -d '/' -f 2 <<< "$GITHUB_REPOSITORY")
+        
+        if [[ -n "${{ inputs.repo }}" ]]; then
+            repo=${inputs.repo}
+        fi
+        
+        if [[ -n "${{ inputs.owner }}" ]]; then
+            owner=${inputs.owner}
+        fi
 
         args=(--owner "$owner" --repo "$repo")
         args+=(--charts-dir "${{ inputs.charts_dir }}")
