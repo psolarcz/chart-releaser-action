@@ -278,14 +278,13 @@ release_charts() {
 }
 
 update_index() {
-    local args=(-o "$owner" -r "$repo" --push -i index.yaml --package-path ../)
+    local args=(-o "$owner" -r "$repo" --push -i index.yaml --package-path ../main)
     if [[ -n "$config" ]]; then
         args+=(--config "$config")
     fi
 
     echo 'Updating charts repo index...'
-    cd netop-helm
-    ls -la
+    cd ../netop-helm
     cr index "${args[@]}"
 }
 
