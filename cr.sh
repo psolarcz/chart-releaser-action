@@ -285,7 +285,7 @@ update_index() {
 
     echo 'Updating charts repo index...'
     cd netop-helm
-    git remove -v
+    git remote -v
     cr index "${args[@]}"
 }
 
