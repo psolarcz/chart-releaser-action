@@ -284,6 +284,7 @@ update_index() {
     fi
 
     echo 'Updating charts repo index...'
+    cd netop-helm
     cr index "${args[@]}"
 }
 
