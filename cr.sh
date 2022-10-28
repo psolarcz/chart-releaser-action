@@ -278,7 +278,7 @@ release_charts() {
 }
 
 update_index() {
-    local args=(-o "$owner" -r "$repo" --push -i index.yaml --package-path ../)
+    local args=(-o "$owner" -r "$repo" --push -i index.yaml --package-path ../.cr-release-packages)
     if [[ -n "$config" ]]; then
         args+=(--config "$config")
     fi
