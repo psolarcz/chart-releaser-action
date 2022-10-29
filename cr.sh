@@ -285,7 +285,12 @@ update_index() {
 
     echo 'Updating charts repo index...'
     cd netop-helm
-    git remote -v
+    
+    git config --list
+    git config user.name "$GITHUB_ACTOR"
+    git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+    git config --list
+    
     cr index "${args[@]}"
 }
 
