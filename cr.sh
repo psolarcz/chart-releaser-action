@@ -247,7 +247,10 @@ lookup_changed_charts() {
     local commit="$1"
 
     local changed_files
-    changed_files=$(git diff --find-renames --name-only "$commit" -- "$charts_dir")
+    
+    # Hardcoded to allways trigger helm release
+    #changed_files=$(git diff --find-renames --name-only "$commit" -- "$charts_dir")
+    changed_files="deploy/charts/netops-org-manager/README.md"
 
     local depth=$(( $(tr "/" "\n" <<< "$charts_dir" | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
     local fields="1-${depth}"
