@@ -267,6 +267,7 @@ package_chart() {
     fi
 
     echo "Packaging chart '$chart'..."
+    echo "${args[@]}"
     cr package "${args[@]}"
 }
 
